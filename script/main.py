@@ -18,8 +18,6 @@ fare 	    Passenger fare
 cabin 	    Cabin number 	
 embarked 	Port of Embarkation 	C/0 = Cherbourg, Q/1 = Queenstown, S/2 = Southampton
 
-
-
 """""""""""
 
 import numpy as np
