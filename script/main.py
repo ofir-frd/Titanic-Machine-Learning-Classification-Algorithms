@@ -28,9 +28,18 @@ import matplotlib.pyplot as plt
 import seaborn as sn
 
 
-
-
 def main():
+    
+    ### Initial statues of the data
+    
+    print(titaticDF.head())
+    
+    titaticDFFeatureList= []
+    
+    [titaticDFFeatureList.append(feature) for feature in titaticDF.columns if titaticDF[feature].isnull().sum()>1]
+          
+    for feature in titaticDFFeatureList:
+        print("{} had {} % missing values".format(feature,np.round(titaticDF[feature].isnull().sum()/len(titaticDF)*100,2)))
     
 
     
