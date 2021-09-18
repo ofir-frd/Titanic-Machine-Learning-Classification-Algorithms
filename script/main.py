@@ -29,7 +29,6 @@ import seaborn as sn
 ### Post-Processing Data plots
 def plotProcessedData(titaticTestDF, titaticTrainDF):
     
-    
     figure, axis = plt.subplots(1, 2)
 
     axis[0].pie(titaticTestDF["Pclass"].value_counts(), labels= titaticTestDF["Pclass"].value_counts().index, autopct='%1.0f%%')
@@ -43,7 +42,6 @@ def plotProcessedData(titaticTestDF, titaticTrainDF):
 ### Clean and organize raw data
 def titaticDFPreProcessing(titaticDF):
 
-    
     ### Remove feature that are irrelevant for survivability.
     ### Consider Port of Embarkation removal due to insignificance.
     
