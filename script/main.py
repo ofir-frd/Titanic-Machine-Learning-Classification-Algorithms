@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 import seaborn as sn
 
 
-### Post-Processing Data plots
+### Post-processing data plots
 def plotProcessedData(titaticTestDF, titaticTrainDF):
     
     figure, axis = plt.subplots(1, 2)
