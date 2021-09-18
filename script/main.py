@@ -26,7 +26,6 @@ import matplotlib.pyplot as plt
 import seaborn as sn
 
 
-
 ### Clean and organize raw data
 def titaticDFPreProcessing(titaticDF):
 
@@ -50,24 +49,40 @@ def titaticDFPreProcessing(titaticDF):
     ### !! 1st trial to solve this challange will include removal of 20% of the data due to missing age parameter !! ###
     titaticDF.dropna(how = 'any', axis = 0, inplace = True)
 
+    return titaticDF
 
+
+### Prints DF head and missing values status for each feauture
+def printDFStatus(titaticDF):
+
+    print(titaticDF.head())
+        
+    titaticDFFeatureList= []
+        
+    [titaticDFFeatureList.append(feature) for feature in titaticDF.columns]
+              
+    for feature in titaticDFFeatureList:
+        print("{} had {} % missing values".format(feature,np.round(titaticDF[feature].isnull().sum()/len(titaticDF)*100,2)))
+        
+    print ('\n')
 
 
 def main():
     
+    titaticTestDF = pd.read_csv('test.csv')                 # Database Import
+    titaticTrainTestDF = pd.read_csv('train.csv')                 # Database Import
+    
     ### Initial statues of the data
+
+    printDFStatus(titaticTestDF)
+    printDFStatus(titaticTrainTestDF)
     
-    print(titaticDF.head())
+    titaticTestDF = titaticDFPreProcessing(titaticTestDF)  # Initiate DF pre-processing
+    titaticTrainTestDF = titaticDFPreProcessing(titaticTrainTestDF)  # Initiate DF pre-processing
     
-    titaticDFFeatureList= []
-    
-    [titaticDFFeatureList.append(feature) for feature in titaticDF.columns]
-          
-    for feature in titaticDFFeatureList:
-        print("{} had {} % missing values".format(feature,np.round(titaticDF[feature].isnull().sum()/len(titaticDF)*100,2)))
-    
-     titaticDF = titaticDFPreProcessing(titaticDF)  # Initiate DF pre-processing
-    
+    printDFStatus(titaticTestDF)
+    printDFStatus(titaticTrainTestDF)
+        
     
 if __name__ == "__main__":
     main()
