@@ -70,18 +70,18 @@ def printDFStatus(titaticDF):
 def main():
     
     titaticTestDF = pd.read_csv('test.csv')                 # Database Import
-    titaticTrainTestDF = pd.read_csv('train.csv')                 # Database Import
+    titaticTrainDF = pd.read_csv('train.csv')                 # Database Import
     
     ### Initial statues of the data
 
     printDFStatus(titaticTestDF)
-    printDFStatus(titaticTrainTestDF)
+    printDFStatus(titaticTrainDF)
     
     titaticTestDF = titaticDFPreProcessing(titaticTestDF)  # Initiate DF pre-processing
-    titaticTrainTestDF = titaticDFPreProcessing(titaticTrainTestDF)  # Initiate DF pre-processing
+    titaticTrainDF = titaticDFPreProcessing(titaticTrainDF)  # Initiate DF pre-processing
     
     printDFStatus(titaticTestDF)
-    printDFStatus(titaticTrainTestDF)
+    printDFStatus(titaticTrainDF)
         
     
 if __name__ == "__main__":
