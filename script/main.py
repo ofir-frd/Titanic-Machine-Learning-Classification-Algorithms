@@ -43,6 +43,12 @@ def titaticDFPreProcessing(titaticDF):
     titaticDF["Sex"] = titaticDF["Sex"].apply(lambda x: 0 if x == 'female' else 1) # female/male to 0/1
     titaticDF["Embarked"] = titaticDF["Embarked"].apply(lambda x: 0 if x == 'C' else ( 1 if x == 'Q' else 2)) # C to 0, Q to 1, S to 2
 
+    ### Managing missing data:
+    
+    titaticDF["Fare"] = titaticDF["Fare"].fillna(titaticDF["Fare"].mean())                # fill the one missing Fare data point with mean value    
+        
+    ### !! 1st trial to solve this challange will include removal of 20% of the data due to missing age parameter !! ###
+    titaticDF.dropna(how = 'any', axis = 0, inplace = True)
 
 
 
