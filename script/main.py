@@ -26,6 +26,20 @@ import matplotlib.pyplot as plt
 import seaborn as sn
 
 
+### Post-Processing Data plots
+def plotProcessedData(titaticTestDF, titaticTrainDF):
+    
+    
+    figure, axis = plt.subplots(1, 2)
+
+    axis[0].pie(titaticTestDF["Pclass"].value_counts(), labels= titaticTestDF["Pclass"].value_counts().index, autopct='%1.0f%%')
+    axis[0].set_title('Test BD:\n passangers per class')
+
+    axis[1].pie(titaticTrainDF["Pclass"].value_counts(), labels= titaticTrainDF["Pclass"].value_counts().index, autopct='%1.0f%%')
+    axis[1].set_title('Train BD:\n passangers per class')
+    plt.show()
+
+
 ### Clean and organize raw data
 def titaticDFPreProcessing(titaticDF):
 
@@ -49,6 +63,8 @@ def titaticDFPreProcessing(titaticDF):
     ### !! 1st trial to solve this challange will include removal of 20% of the data due to missing age parameter !! ###
     titaticDF.dropna(how = 'any', axis = 0, inplace = True)
 
+    print("Data Pre-processing completed...")
+    
     return titaticDF
 
 
@@ -83,6 +99,8 @@ def main():
     printDFStatus(titaticTestDF)
     printDFStatus(titaticTrainDF)
         
+    plotProcessedData(titaticTestDF, titaticTrainDF)
+    
     
 if __name__ == "__main__":
     main()
