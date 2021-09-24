@@ -29,8 +29,6 @@ import seaborn as sn
 ### Post-processing data plots
 def plotProcessedData(titaticTestDF, titaticTrainDF):
     
-    
-    
     # Presents the relative division of classes in the train and test databases
     figure, axis = plt.subplots(1, 2)
 
