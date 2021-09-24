@@ -17,4 +17,5 @@ Passangers class distribution:
 
 The quantity and presentage for dead and alive passangers per class:
 
-![LifeandDeathByClass](https://user-images.githubusercontent.com/85901822/134666385-85aabf44-d277-4638-86dc-7f816436e04f.png)
+![LifeandDeathByClass](https://user-images.githubusercontent.com/85901822/134668503-bf8516d8-12bd-4558-ac2a-c9dd82a903f1.png)
+
