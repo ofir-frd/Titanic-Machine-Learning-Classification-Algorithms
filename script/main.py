@@ -29,6 +29,9 @@ import seaborn as sn
 ### Post-processing data plots
 def plotProcessedData(titaticTestDF, titaticTrainDF):
     
+    
+    
+    # Presents the relative division of classes in the train and test databases
     figure, axis = plt.subplots(1, 2)
 
     axis[0].pie(titaticTestDF["Pclass"].value_counts(), labels= titaticTestDF["Pclass"].value_counts().index, autopct='%1.0f%%')
@@ -37,6 +40,44 @@ def plotProcessedData(titaticTestDF, titaticTrainDF):
     axis[1].pie(titaticTrainDF["Pclass"].value_counts(), labels= titaticTrainDF["Pclass"].value_counts().index, autopct='%1.0f%%')
     axis[1].set_title('Train BD:\n passangers per class')
     plt.show()
+    
+    
+    
+    # The quantity and presentage for dead and alive passangers per class
+    plt.clf()
+
+    firstClassMortality = titaticTrainDF.loc[titaticTrainDF['Pclass'] == 1, :]['Survived'].value_counts()
+    secondClassMortality = titaticTrainDF.loc[titaticTrainDF['Pclass'] == 2, :]['Survived'].value_counts()
+    thirdClassMortality = titaticTrainDF.loc[titaticTrainDF['Pclass'] == 3, :]['Survived'].value_counts()
+    
+    classMortality = [firstClassMortality[0],secondClassMortality[0],thirdClassMortality[0]],[firstClassMortality[1],secondClassMortality[1],thirdClassMortality[1]]
+    
+    fig, axis = plt.subplots(figsize=(5,10))
+    
+    plt.barh(['1st Class','2nd Class','3rd Class'],classMortality[0], label="Died")
+    plt.barh(['1st Class','2nd Class','3rd Class'],classMortality[1], label="Survived", left=classMortality[0])
+    
+    axis.set_title('Survived pasangers per Class')
+    axis.legend(ncol=2, loc="lower right", frameon=True)
+    
+    for i in range(0,len(classMortality[0])): 
+        percentageValueSurvived = (classMortality[1][i] / (classMortality[0][i] + classMortality[1][i])) * 100
+        percentageValueDied = 100 - percentageValueSurvived
+        
+        percentageValueSurvived = percentageValueSurvived.round(1)
+        percentageValueDied = percentageValueDied.round(1)
+        
+        axis.annotate(str(percentageValueSurvived) + '%', ((classMortality[0][i] + classMortality[1][i])-(classMortality[1][i]/1.3),i))
+        axis.annotate(str(percentageValueDied) + '%', (classMortality[0][i]/(3.5-(i*0.5)),i))
+        
+        
+    axis.colormaps('viridis')
+    
+      
+    plt.show()
+    
+    
+   
 
 
 ### Clean and organize raw data
