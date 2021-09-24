@@ -56,6 +56,7 @@ def plotProcessedData(titaticTestDF, titaticTrainDF):
     plt.barh(['1st Class','2nd Class','3rd Class'],classMortality[1], label="Survived", left=classMortality[0])
     
     axis.set_title('Survived pasangers per Class')
+    axis.set_xlabel("Number of passangers")
     axis.legend(ncol=2, loc="lower right", frameon=True)
     
     for i in range(0,len(classMortality[0])): 
