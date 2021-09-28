@@ -81,11 +81,11 @@ def plotProcessedData(titaticTestDF, titaticTrainDF):
     axis[0].hist(titaticTrainDF.loc[titaticTrainDF['Survived'] == 0, :]['Age'], color = 'royalblue')
     axis[1].hist(titaticTrainDF.loc[titaticTrainDF['Survived'] == 1, :]['Age'], color = 'darkorange')
     
-    axis[0].set_title('Died passangers by age')
-    axis[0].set_xlabel("Number of passangers")
+    axis[0].set_title('Died passengers by age')
+    axis[0].set_xlabel("Number of passengers")
     
-    axis[1].set_title('Survived passangers by age')
-    axis[1].set_xlabel("Number of passangers")
+    axis[1].set_title('Survived passengers by age')
+    axis[1].set_xlabel("Number of passengers")
     
     plt.show()
        
