@@ -26,13 +26,16 @@ The distribution by age of dead and alive passangers:
 ![LifeandDeathByAge](https://user-images.githubusercontent.com/85901822/135081332-6cbf61ad-10f9-4c47-9722-3c67d2d2fd6f.png)
 
 
+
 The distribution by number of siblings/spouses of dead and alive passangers:
 
 ![LifeandDeathBySibs](https://user-images.githubusercontent.com/85901822/135587178-5b7844ed-e2c9-4e99-8bb5-461cda23b901.png)
 
 
 
+The distribution by number of parents/children of dead and alive passangers:
 
+![LifeandDeathByChilds](https://user-images.githubusercontent.com/85901822/135590033-e501e778-b8ec-4a4f-b559-ef27603a0544.png)
 
 
 
