@@ -131,6 +131,7 @@ def titaticDFPreProcessing(titaticDF):
     
     titaticDF = titaticDF.drop('Name', axis=1)
     titaticDF = titaticDF.drop('Ticket', axis=1)
+    titaticDF = titaticDF.drop('fare', axis=1)
     titaticDF = titaticDF.drop('Cabin', axis=1)      # consider use in the future (78% missing data)
     
     ### Transform all features to numbers
