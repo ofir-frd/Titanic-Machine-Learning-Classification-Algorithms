@@ -39,4 +39,9 @@ The distribution by number of parents/children of dead and alive passangers:
 
 
 
+The quantity and presentage for dead and alive passangers per boarding location:
+
+![LifeandDeathByEmbarked](https://user-images.githubusercontent.com/85901822/135593653-849dec90-273a-4cf6-b41d-77dcc183e90a.png)
+
+
 
