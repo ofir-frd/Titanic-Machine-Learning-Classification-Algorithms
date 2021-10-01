@@ -88,6 +88,22 @@ def plotProcessedData(titaticTestDF, titaticTrainDF):
     axis[1].set_xlabel("Number of passengers")
     
     plt.show()
+    
+    
+    ### The distribution by number of siblings/spouses of dead and alive passangers
+    
+    fig04, axis = plt.subplots(1, 2)
+
+    axis[0].hist(titaticTrainDF.loc[titaticTrainDF['Survived'] == 0, :]['SibSp'], color = 'royalblue')
+    axis[1].hist(titaticTrainDF.loc[titaticTrainDF['Survived'] == 1, :]['SibSp'], color = 'darkorange')
+    
+    axis[0].set_title('Died passengers')
+    axis[0].set_xlabel("Num. of siblings/spouses")
+    
+    axis[1].set_title('Survived passengers')
+    axis[1].set_xlabel("Num. of siblings/spouses")
+    
+    plt.show()
        
 
 ### Clean and organize raw data
