@@ -11,12 +11,12 @@ survival 	Survival 	            0 = No, 1 = Yes
 pclass 	    Ticket class 	        1 = 1st, 2 = 2nd, 3 = 3rd
 sex 	    Sex 	                0 = female, 1= male
 Age 	    Age in years 	
-Tibsp 	    # of siblings / spouses aboard the Titanic 	
+Sibsp 	    # of siblings / spouses aboard the Titanic 	
 Parch 	    # of parents / children aboard the Titanic 	
-ticket 	    Ticket number 	
-fare 	    Passenger fare 	
-cabin 	    Cabin number 	
-embarked 	Port of Embarkation 	C/0 = Cherbourg, Q/1 = Queenstown, S/2 = Southampton
+Ticket 	    Ticket number 	
+Fare 	    Passenger fare 	
+Cabin 	    Cabin number 	
+Embarked 	Port of Embarkation 	C/0 = Cherbourg, Q/1 = Queenstown, S/2 = Southampton
 
 """""""""""
 
@@ -131,7 +131,7 @@ def titaticDFPreProcessing(titaticDF):
     
     titaticDF = titaticDF.drop('Name', axis=1)
     titaticDF = titaticDF.drop('Ticket', axis=1)
-    titaticDF = titaticDF.drop('fare', axis=1)
+    titaticDF = titaticDF.drop('Fare', axis=1)
     titaticDF = titaticDF.drop('Cabin', axis=1)      # consider use in the future (78% missing data)
     
     ### Transform all features to numbers
