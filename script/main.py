@@ -121,6 +121,39 @@ def plotProcessedData(titaticTestDF, titaticTrainDF):
     
     plt.show()
     
+    
+    ### The quantity and presentage for dead and alive passangers per boarding location
+    
+    firstEmbarked = titaticTrainDF.loc[titaticTrainDF['Embarked'] == 0, :]['Survived'].value_counts()
+    secondEmbarked = titaticTrainDF.loc[titaticTrainDF['Embarked'] == 1, :]['Survived'].value_counts()
+    thirdEmbarked = titaticTrainDF.loc[titaticTrainDF['Embarked'] == 2, :]['Survived'].value_counts()
+    
+    embarkedMortality = [firstEmbarked[0],secondEmbarked[0],thirdEmbarked[0]],[firstEmbarked[1],secondEmbarked[1],thirdEmbarked[1]]
+    
+    fig06, axis = plt.subplots(figsize=(5,10))
+    
+    plt.barh(['Cherbourg','Queenstown','Southampton'],embarkedMortality[0], label="Died")
+    plt.barh(['Cherbourg','Queenstown','Southampton'],embarkedMortality[1], label="Survived", left=embarkedMortality[0])
+
+    axis.set_title('Survived/Died pasangers per embarked location')
+    axis.set_xlabel("Number of passangers")
+    axis.legend(ncol=2, loc="lower right", frameon=True)
+    axis.set
+    
+    for i in range(0,len(embarkedMortality[0])): 
+        percentageValueSurvived = (embarkedMortality[1][i] / (embarkedMortality[0][i] + embarkedMortality[1][i])) * 100
+        percentageValueDied = 100 - percentageValueSurvived
+        
+        percentageValueSurvived = percentageValueSurvived.round(1)
+        percentageValueDied = percentageValueDied.round(1)
+        
+        axis.annotate(str(percentageValueSurvived) + '%', ((embarkedMortality[0][i] + embarkedMortality[1][i])-(embarkedMortality[1][i]/1.3),i))
+        axis.annotate(str(percentageValueDied) + '%', (embarkedMortality[0][i]/(3.5-(i*0.5)),i+0.1))
+        
+        
+    axis.colormaps('viridis')
+    
+    plt.show()
 
     
 ### Clean and organize raw data
