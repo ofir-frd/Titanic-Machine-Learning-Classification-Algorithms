@@ -69,8 +69,6 @@ def plotProcessedData(titaticTestDF, titaticTrainDF):
         axis.annotate(str(percentageValueDied) + '%', (classMortality[0][i]/(3.5-(i*0.5)),i))
         
         
-    axis.colormaps('viridis')
-    
     plt.show()
     
     
