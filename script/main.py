@@ -198,19 +198,23 @@ def print_df_status(titaticDF):
 
 def main():
     
-    titaticTestDF = pd.read_csv('test.csv')                 # Database Import
+    titaticTestDF = pd.read_csv('test.csv')                   # Database Import
     titaticTrainDF = pd.read_csv('train.csv')                 # Database Import
+    titaticTestResults = pd.read_csv('gender_submission.csv') # Database Import
     
     ### Initial statues of the data
 
     print_df_status(titaticTestDF)
     print_df_status(titaticTrainDF)
+    print_df_status(titaticTestResults)
     
     titaticTestDF = titaticdf_pre_processing(titaticTestDF)  # Initiate DF pre-processing
     titaticTrainDF = titaticdf_pre_processing(titaticTrainDF)  # Initiate DF pre-processing
+    titaticTestResults = corolate_results_by_id(titaticTestDF, titaticTestResults)
     
     print_df_status(titaticTestDF)
     print_df_status(titaticTrainDF)
+    print_df_status(titaticTestResults)
         
     plot_processed_data(titaticTestDF, titaticTrainDF)
     
