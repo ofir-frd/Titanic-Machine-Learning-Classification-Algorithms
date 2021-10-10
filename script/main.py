@@ -24,10 +24,11 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sn
+import re
 
 
 ### Post-processing data plots
-def plotProcessedData(titaticTestDF, titaticTrainDF):
+def plot_processed_data(titaticTestDF, titaticTrainDF):
     
     ### Presents the relative division of classes in the train and test databases
     
@@ -148,12 +149,12 @@ def plotProcessedData(titaticTestDF, titaticTrainDF):
         axis.annotate(str(percentageValueSurvived) + '%', ((embarkedMortality[0][i] + embarkedMortality[1][i])-(embarkedMortality[1][i]/1.3),i))
         axis.annotate(str(percentageValueDied) + '%', (embarkedMortality[0][i]/(3.5-(i*0.5)),i+0.1))
         
-        
+    
     plt.show()
 
     
 ### Clean and organize raw data
-def titaticDFPreProcessing(titaticDF):
+def titaticdf_pre_processing(titaticDF):
 
     ### Remove feature that are irrelevant for survivability.
     ### Consider Port of Embarkation removal due to insignificance.
@@ -170,7 +171,7 @@ def titaticDFPreProcessing(titaticDF):
 
     ### Managing missing data:
     
-    titaticDF["Fare"] = titaticDF["Fare"].fillna(titaticDF["Fare"].mean())                # fill the one missing Fare data point with mean value    
+   # titaticDF["Fare"] = titaticDF["Fare"].fillna(titaticDF["Fare"].mean())                # fill the one missing Fare data point with mean value    
         
     ### !! 1st trial to solve this challange will include removal of 20% of the data due to missing age parameter !! ###
     titaticDF.dropna(how = 'any', axis = 0, inplace = True)
@@ -181,7 +182,7 @@ def titaticDFPreProcessing(titaticDF):
 
 
 ### Prints DF head and missing values status for each feauture
-def printDFStatus(titaticDF):
+def print_df_status(titaticDF):
 
     print(titaticDF.head())
         
@@ -202,16 +203,16 @@ def main():
     
     ### Initial statues of the data
 
-    printDFStatus(titaticTestDF)
-    printDFStatus(titaticTrainDF)
+    print_df_status(titaticTestDF)
+    print_df_status(titaticTrainDF)
     
-    titaticTestDF = titaticDFPreProcessing(titaticTestDF)  # Initiate DF pre-processing
-    titaticTrainDF = titaticDFPreProcessing(titaticTrainDF)  # Initiate DF pre-processing
+    titaticTestDF = titaticdf_pre_processing(titaticTestDF)  # Initiate DF pre-processing
+    titaticTrainDF = titaticdf_pre_processing(titaticTrainDF)  # Initiate DF pre-processing
     
-    printDFStatus(titaticTestDF)
-    printDFStatus(titaticTrainDF)
+    print_df_status(titaticTestDF)
+    print_df_status(titaticTrainDF)
         
-    plotProcessedData(titaticTestDF, titaticTrainDF)
+    plot_processed_data(titaticTestDF, titaticTrainDF)
     
     
 if __name__ == "__main__":
