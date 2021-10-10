@@ -210,7 +210,7 @@ def main():
     
     titaticTestDF = titaticdf_pre_processing(titaticTestDF)  # Initiate DF pre-processing
     titaticTrainDF = titaticdf_pre_processing(titaticTrainDF)  # Initiate DF pre-processing
-    titaticTestResults = corolate_results_by_id(titaticTestDF, titaticTestResults)
+    titaticTestResults = correlate_results_by_id(titaticTestDF, titaticTestResults)
     
     print_df_status(titaticTestDF)
     print_df_status(titaticTrainDF)
