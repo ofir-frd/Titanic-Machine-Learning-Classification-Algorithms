@@ -1,6 +1,6 @@
 # Titanic
 Predict survival on the Titanic
-
+A project from Kaggle
 
 Competition from Kaggle:
 
