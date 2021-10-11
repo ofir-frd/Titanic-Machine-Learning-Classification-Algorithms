@@ -26,7 +26,20 @@ import matplotlib.pyplot as plt
 import seaborn as sn
 import re
 
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import r2_score
+from sklearn.tree import DecisionTreeRegressor
 
+
+def run_decision_tree_regressor(titaticTestDF, titaticTrainDF, titaticTestResults, maxDepth, randomState):
+
+
+    
+    
+    
+    
 ### Post-processing data plots
 def plot_processed_data(titaticTestDF, titaticTrainDF):
     
@@ -158,6 +171,7 @@ def plot_processed_data(titaticTestDF, titaticTrainDF):
 def correlate_results_by_id(titaticTestDF, titaticTestResults):
     
     titaticTestResultsClean = titaticTestResults
+    
     for indexValue in titaticTestResults.index:
         if titaticTestDF['PassengerId'].get(titaticTestResults.index[indexValue], default = False) is False:
             titaticTestResultsClean = titaticTestResultsClean.drop(index=indexValue)
@@ -230,6 +244,7 @@ def main():
         
     plot_processed_data(titaticTestDF, titaticTrainDF)
     
+    run_decision_tree_regressor(titaticTestDF, titaticTrainDF, titaticTestResults, 10, 42)
     
 if __name__ == "__main__":
     main()
