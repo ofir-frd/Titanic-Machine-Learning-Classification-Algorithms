@@ -152,14 +152,19 @@ def plot_processed_data(titaticTestDF, titaticTrainDF):
     
     plt.show()
 
- 
+
 ### Removes row from correlated DF that were taken out during the pre processing
 ### removal is conducted by passanger ID values
 def correlate_results_by_id(titaticTestDF, titaticTestResults):
     
-    if
-
+    titaticTestResultsClean = titaticTestResults
+    for indexValue in titaticTestResults.index:
+        if titaticTestDF['PassengerId'].get(titaticTestResults.index[indexValue], default = False) is False:
+            titaticTestResultsClean = titaticTestResultsClean.drop(index=indexValue)
+            
+    return titaticTestResultsClean
    
+    
 ### Clean and organize raw data
 def titaticdf_pre_processing(titaticDF):
 
