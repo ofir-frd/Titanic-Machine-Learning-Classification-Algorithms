@@ -32,7 +32,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
 from sklearn.tree import DecisionTreeRegressor
 
-
+### Apply decision tree regressor to predict the survivability of passangers
 def run_decision_tree_regressor(titaticTestDF, titaticTrainDF, titaticTestResults, maxDepth, randomState):
 
 
