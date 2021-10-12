@@ -33,7 +33,7 @@ from sklearn.metrics import r2_score
 from sklearn.tree import DecisionTreeRegressor
 
 ### Apply decision tree regressor to predict the survivability of passangers
-def run_decision_tree_regressor(titaticTestDF, titaticTrainDF, titaticTestResults, maxDepth, randomState):
+def run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, maxDepth, randomState):
 
 
     
@@ -244,7 +244,7 @@ def main():
         
     plot_processed_data(titaticTestDF, titaticTrainDF)
     
-    run_decision_tree_regressor(titaticTestDF, titaticTrainDF, titaticTestResults, 10, 42)
+    run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, 10, 42)
     
 if __name__ == "__main__":
     main()
