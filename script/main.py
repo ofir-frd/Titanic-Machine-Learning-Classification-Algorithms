@@ -32,6 +32,13 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import cross_val_score
 
+### Plots given decision tree object
+def plot_decision_tree(treeObject) :
+    
+    fig06, axis = plt.subplots(figsize=(10,10))
+    plot_tree(dtObject)
+
+    
 ### Apply decision tree regressor to predict the survivability of passangers
 ### Returns accuracyValue and crossValScore
 def run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, maxDepth, randomState):
@@ -59,6 +66,8 @@ def run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResul
     
     crossValScoreTest = cross_val_score(dtObject, x, y, cv = 10)
 
+    plot_decision_tree(dtObject)
+    
     return accuracyValueTrain, crossValScoreTrain, accuracyValueTest, crossValScoreTest
     
     
