@@ -48,7 +48,6 @@ def run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResul
 
     dtObject.fit(x_train,y_train)
 
-
     PredictedTypesDT = dtObject.predict(x_test)
 
     accuracyValue = accuracy_score(y_test, PredictedTypesDT)
