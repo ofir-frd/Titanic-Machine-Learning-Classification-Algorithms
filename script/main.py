@@ -37,24 +37,29 @@ from sklearn.model_selection import cross_val_score
 def run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, maxDepth, randomState):
 
     x = titaticTrainDF.drop('Survived', axis=1)
-    x = x.drop('PassengerId', axis=1)
 
     y = titaticTrainDF['Survived']
 
     x_train, x_test, y_train, y_test = train_test_split(x,y, test_size = 0.2, train_size = 0.8,
-                                                        random_state = 47, shuffle= True)
+                                                        random_state = randomState, shuffle= True)
 
-    dtObject = DecisionTreeClassifier()
+    dtObject = DecisionTreeClassifier(max_depth = maxDepth)
 
-    dtObject.fit(x_train,y_train)
+    dtObject.fit(x_train, y_train)
 
-    PredictedTypesDT = dtObject.predict(x_test)
+    PredictedTrain = dtObject.predict(x_test)
+    
+    accuracyValueTrain = accuracy_score(y_test, PredictedTrain)
+    
+    crossValScoreTrain = cross_val_score(dtObject, x, y, cv = 10)
+    
+    PredictedTest = dtObject.predict(titaticTestDF)
+    
+    accuracyValueTest = accuracy_score(titaticTestResultsClean, PredictedTest)
+    
+    crossValScoreTest = cross_val_score(dtObject, x, y, cv = 10)
 
-    accuracyValue = accuracy_score(y_test, PredictedTypesDT)
-
-    crossValScore = cross_val_score(dtObject, x, y, cv = 10)
-
-    return accuracyValue, crossValScore
+    return accuracyValueTrain, crossValScoreTrain, accuracyValueTest, crossValScoreTest
     
     
 ### Post-processing data plots
@@ -179,8 +184,12 @@ def plot_processed_data(titaticTestDF, titaticTrainDF):
         axis.annotate(str(percentageValueSurvived) + '%', ((embarkedMortality[0][i] + embarkedMortality[1][i])-(embarkedMortality[1][i]/1.3),i))
         axis.annotate(str(percentageValueDied) + '%', (embarkedMortality[0][i]/(3.5-(i*0.5)),i+0.1))
         
-    
     plt.show()
+
+
+### Removes Passanger ID feature
+def remove_passanger_id (titaticDF)
+    return titaticDF.drop('PassengerId', axis=1) 
 
 
 ### Removes row from correlated DF that were taken out during the pre processing
@@ -254,6 +263,12 @@ def main():
     titaticTestDF = titaticdf_pre_processing(titaticTestDF)  # Initiate DF pre-processing
     titaticTrainDF = titaticdf_pre_processing(titaticTrainDF)  # Initiate DF pre-processing
     titaticTestResults = correlate_results_by_id(titaticTestDF, titaticTestResults)
+        
+    ### Once titaticTestResults are collocated with the test DF
+    ### PassangerID feature is no more needed
+    titaticTestDF = remove_passanger_id(titaticTestDF)
+    titaticTrainDF = remove_passanger_id(titaticTrainDF)
+    titaticTestResults = remove_passanger_id(titaticTestResults)
     
     print_df_status(titaticTestDF)
     print_df_status(titaticTrainDF)
