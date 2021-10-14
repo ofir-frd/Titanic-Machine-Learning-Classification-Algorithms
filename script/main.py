@@ -30,16 +30,32 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 
 from sklearn.metrics import accuracy_score
-from sklearn.metrics import mean_absolute_error
-from sklearn.metrics import mean_squared_error
-from sklearn.metrics import r2_score
+from sklearn.model_selection import cross_val_score
 
 ### Apply decision tree regressor to predict the survivability of passangers
+### Returns accuracyValue and crossValScore
 def run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, maxDepth, randomState):
 
+    x = titaticTrainDF.drop('Survived', axis=1)
+    x = x.drop('PassengerId', axis=1)
 
-    
-    
+    y = titaticTrainDF['Survived']
+
+    x_train, x_test, y_train, y_test = train_test_split(x,y, test_size = 0.2, train_size = 0.8,
+                                                        random_state = 47, shuffle= True)
+
+    dtObject = DecisionTreeClassifier()
+
+    dtObject.fit(x_train,y_train)
+
+
+    PredictedTypesDT = dtObject.predict(x_test)
+
+    accuracyValue = accuracy_score(y_test, PredictedTypesDT)
+
+    crossValScore = cross_val_score(dtObject, x, y, cv = 10)
+
+    return accuracyValue, crossValScore
     
     
 ### Post-processing data plots
@@ -246,7 +262,7 @@ def main():
         
     plot_processed_data(titaticTestDF, titaticTrainDF)
     
-    run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, 10, 42)
+    print(run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, 10, 42))
     
 if __name__ == "__main__":
     main()
