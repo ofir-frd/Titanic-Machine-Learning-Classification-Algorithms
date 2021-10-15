@@ -44,8 +44,8 @@ The quantity and presentage for dead and alive passangers per boarding location:
 
 
 
-Sample of desition tree classification with max depth of 4.
+Sample of **desition tree classification** with max depth of 4.
 
-The accuracy score of this algorithem on initial DB is 82.51% and on the test DB is 96.69%
+The accuracy score of this algorithem on initial DB is 82.51% and on the test DB is **96.69%**.
 
 ![Figure 2021-10-14 183414](https://user-images.githubusercontent.com/85901822/137436008-e4e6cbf7-9a79-4db2-b602-618608be311f.png)
