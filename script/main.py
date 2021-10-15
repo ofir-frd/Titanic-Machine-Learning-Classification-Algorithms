@@ -112,8 +112,7 @@ def plot_processed_data(titaticTestDF, titaticTrainDF):
         
         axis.annotate(str(percentageValueSurvived) + '%', ((classMortality[0][i] + classMortality[1][i])-(classMortality[1][i]/1.3),i))
         axis.annotate(str(percentageValueDied) + '%', (classMortality[0][i]/(3.5-(i*0.5)),i))
-        
-        
+           
     plt.show()
     
     
