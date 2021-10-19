@@ -7,7 +7,11 @@ https://www.kaggle.com/c/titanic
 
 
 
-
+    #########################
+    #######  Analysis #######
+    #########################
+    
+    
 passengers class distribution:
 
 ![Passangers class distribution](https://user-images.githubusercontent.com/85901822/133884139-d800d625-70a1-45df-b189-b56865739207.png)
@@ -43,6 +47,9 @@ The quantity and percentage for dead and alive passengers per boarding location:
 ![LifeandDeathByEmbarked](https://user-images.githubusercontent.com/85901822/135593653-849dec90-273a-4cf6-b41d-77dcc183e90a.png)
 
 
+    #########################
+    ###  Machine Learning ###
+    #########################
 
 Sample of **desition tree classification** with a max depth of 4.
 
@@ -54,3 +61,5 @@ Examination of the decision tree classification algorithm efficiency based on th
 accuracy score:
 ![image](https://user-images.githubusercontent.com/85901822/137860232-a7e9695b-2bac-41ed-9df9-eff3269ad01a.png)
 
+
+![Accuracy Values per tree depth](https://user-images.githubusercontent.com/85901822/137865179-a9d9bc3f-5bbe-4565-af46-c3bf20f3b990.png)
