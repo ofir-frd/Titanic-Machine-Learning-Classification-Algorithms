@@ -60,6 +60,7 @@ The accuracy score of this algorithm on the initial DB is 82.51%, and on the tes
 Examination of the decision tree classification algorithm efficiency based on the tree depth range of 1 to 10.
 
 accuracy score:
+
 ![image](https://user-images.githubusercontent.com/85901822/137860232-a7e9695b-2bac-41ed-9df9-eff3269ad01a.png)
 
 
