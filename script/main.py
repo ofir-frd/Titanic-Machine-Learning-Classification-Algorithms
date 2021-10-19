@@ -32,14 +32,37 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import cross_val_score
 
+
+### Data analysis and plots the decisions tree classifier performance
+def plot_decision_tree_classifier_score(decisionTreeClassifierResults)
+
+    accuracyValueTrainList = []
+    accuracyValueTestList = []
+    
+    for i in range(0,len(decisionTreeClassifierResults)):
+        accuracyValueTrainList.append(decisionTreeClassifierResults[i][:][0])
+        accuracyValueTestList.append(decisionTreeClassifierResults[i][:][2])
+        
+    fig08, axis = plt.subplots(figsize=(5,5))
+    
+    plt.scatter([i for i in range(10)], accuracyValueTrainList, color='blue', label="Accuracy value for Train DB")
+    plt.scatter([i for i in range(10)], accuracyValueTestList, color='red', label="Accuracy value for Test DB")
+    
+    axis.set_title('Accuracy of Train and Test DB per tree depth')
+    axis.set_xlabel("Tree Depth")
+    axis.legend(ncol=1, loc="upper right", frameon=True)
+    axis.set
+    plt.show()  
+
+
 ### Plots given decision tree object
 def plot_decision_tree(treeObject) :
     
-    fig06, axis = plt.subplots(figsize=(10,10))
+    fig07, axis = plt.subplots(figsize=(10,10))
     plot_tree(dtObject)
 
-    
-### Apply decision tree regressor to predict the survivability of passangers
+
+### Apply decision tree regressor to predict the survivability of passengers
 ### Returns accuracyValue and crossValScore
 def run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, maxDepth, randomState):
 
@@ -116,7 +139,7 @@ def plot_processed_data(titaticTestDF, titaticTrainDF):
     plt.show()
     
     
-    ### The distribution by age of dead and alive passangers
+    ### The distribution by age of dead and alive passengers
 
     fig03, axis = plt.subplots(1, 2)
     
@@ -132,7 +155,7 @@ def plot_processed_data(titaticTestDF, titaticTrainDF):
     plt.show()
     
     
-    ### The distribution by number of siblings/spouses of dead and alive passangers
+    ### The distribution by number of siblings/spouses of dead and alive passengers
     
     fig04, axis = plt.subplots(1, 2)
 
@@ -148,7 +171,7 @@ def plot_processed_data(titaticTestDF, titaticTrainDF):
     plt.show()
        
     
-    ### The distribution by number of parents/children of dead and alive passangers
+    ### The distribution by number of parents/children of dead and alive passengers
     
     fig05, axis = plt.subplots(1, 2)
 
@@ -216,7 +239,7 @@ def correlate_results_by_id(titaticTestDF, titaticTestResults):
 ### Clean and organize raw data
 def titaticdf_pre_processing(titaticDF):
 
-    ### Remove feature that are irrelevant for survivability.
+    ### Remove features that are irrelevant for survivability.
     ### Consider Port of Embarkation removal due to insignificance.
     
     titaticDF = titaticDF.drop('Name', axis=1)
@@ -287,11 +310,11 @@ def main():
     ### Examine the scope of decision tree classifier in tree depth range between 1 to 10
     decisionTreeClassifierResults = []
         
-    for treeDepth in range(1,10):
+    for treeDepth in range(1,11):
       decisionTreeClassifierResults.append(run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, treeDepth, 42))
     
     ### Output of accuracy and cross validation scroes are given to each tree depth value
-    print(decisionTreeClassifierResults)
+    plot_decision_tree_classifier_score(decisionTreeClassifierResults)
     
 if __name__ == "__main__":
     main()
