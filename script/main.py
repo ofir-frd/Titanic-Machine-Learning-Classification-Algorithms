@@ -45,8 +45,9 @@ def plot_decision_tree_classifier_score(decisionTreeClassifierResults)
         
     fig08, axis = plt.subplots(figsize=(5,5))
     
-    plt.scatter([i for i in range(10)], accuracyValueTrainList, color='blue', label="Accuracy value for Train DB")
-    plt.scatter([i for i in range(10)], accuracyValueTestList, color='red', label="Accuracy value for Test DB")
+    plt.scatter([i for i in range(1,11)], accuracyValueTrainList, color='royalblue', label="Accuracy value for Train DB")
+    plt.scatter([i for i in range(1,11)], accuracyValueTestList, color='darkorange', label="Accuracy value for Test DB")
+    plt.xticks(range(1,11,1))
     
     axis.set_title('Accuracy of Train and Test DB per tree depth')
     axis.set_xlabel("Tree Depth")
