@@ -63,6 +63,7 @@ accuracy score:
 
 ![image](https://user-images.githubusercontent.com/85901822/137860232-a7e9695b-2bac-41ed-9df9-eff3269ad01a.png)
 
-![Accuracy Values per tree depth](https://user-images.githubusercontent.com/85901822/137873497-0e705c26-cf46-4592-862e-924ab3869031.png)
+![Accuracy Values per tree depth](https://user-images.githubusercontent.com/85901822/137874555-f53ea9dc-7f0d-40f0-9ce9-8119e5445f63.png)
 
 ![desicion tree box plot](https://user-images.githubusercontent.com/85901822/137873646-5f469a14-b665-42df-bb81-45a54644ef54.png)
+
