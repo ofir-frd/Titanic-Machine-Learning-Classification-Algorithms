@@ -53,6 +53,17 @@ def plot_decision_tree_classifier_score(decisionTreeClassifierResults)
     axis.legend(ncol=1, loc="upper right", frameon=True)
     axis.set
     plt.show()  
+    
+    fig09, axis = plt.subplots(figsize=(5,5))
+
+    plt.boxplot([accuracyValueTrainList,accuracyValueTestList], labels = ["Train DB Accuracy", "Test DB Accuracy"],
+                medianprops={"color": "darkorange", "linewidth": 1},
+                    boxprops={"color": "royalblue","linewidth": 1},
+                    whiskerprops={"color": "royalblue", "linewidth": 1},
+                    capprops={"color": "royalblue", "linewidth": 1})
+    
+    axis.set_title('Box and whisker plot of the Accuracy of Train and Test DB')
+    plt.show()  
 
 
 ### Plots given decision tree object
