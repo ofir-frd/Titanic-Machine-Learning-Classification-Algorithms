@@ -51,6 +51,10 @@ The quantity and percentage for dead and alive passengers per boarding location:
     ###  Machine Learning ###
     #########################
 
+
+    ##### Decision Tree #####
+
+
 Sample of **desition tree classification** with a max depth of 4.
 
 The accuracy score of this algorithm on the initial DB is 82.51%, and on the test DB is **96.69%**.
@@ -66,4 +70,10 @@ accuracy score:
 ![Accuracy Values per tree depth](https://user-images.githubusercontent.com/85901822/137874555-f53ea9dc-7f0d-40f0-9ce9-8119e5445f63.png)
 
 ![desicion tree box plot](https://user-images.githubusercontent.com/85901822/137873646-5f469a14-b665-42df-bb81-45a54644ef54.png)
+
+
+    #### Random Forest ####
+
+~
+
 
