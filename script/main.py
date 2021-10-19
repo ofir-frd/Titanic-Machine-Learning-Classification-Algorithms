@@ -289,6 +289,7 @@ def main():
         
     for treeDepth in range(1,10):
       decisionTreeClassifierResults.append(run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, treeDepth, 42))
+    
     ### Output of accuracy and cross validation scroes are given to each tree depth value
     print(decisionTreeClassifierResults)
     
