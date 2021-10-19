@@ -284,7 +284,13 @@ def main():
         
     plot_processed_data(titaticTestDF, titaticTrainDF)
     
-    print(run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, 10, 42))
+    ### Examine the scope of decision tree classifier in tree depth range between 1 to 10
+    decisionTreeClassifierResults = []
+        
+    for treeDepth in range(1,10):
+      decisionTreeClassifierResults.append(run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, treeDepth, 42))
+    ### Output of accuracy and cross validation scroes are given to each tree depth value
+    print(decisionTreeClassifierResults)
     
 if __name__ == "__main__":
     main()
