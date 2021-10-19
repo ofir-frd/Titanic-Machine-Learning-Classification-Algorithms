@@ -65,7 +65,7 @@ Examination of the decision tree classification algorithm efficiency based on th
 
 accuracy score:
 
-![image](https://user-images.githubusercontent.com/85901822/137860232-a7e9695b-2bac-41ed-9df9-eff3269ad01a.png)
+![image](https://user-images.githubusercontent.com/85901822/137876447-ff853047-c587-4b45-b7d1-08db3bb94cdc.png)
 
 ![Accuracy Values per tree depth](https://user-images.githubusercontent.com/85901822/137874555-f53ea9dc-7f0d-40f0-9ce9-8119e5445f63.png)
 
