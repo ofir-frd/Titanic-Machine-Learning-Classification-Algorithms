@@ -36,10 +36,15 @@ from sklearn.model_selection import cross_val_score
 ### Plot heat maps of the accuracy scores
 def plot_random_forest_classifier_score(RandomForestClassifierTrainResults,RandomForestClassifierTestResults):
 
+    ###
+    
+    
 ### Apply decision tree regressor to predict the survivability of passengers
 ### Returns accuracy scores
 def run_random_forest_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, forestSize, treeDepth, randomState):
 
+    ###
+        
 
 ### Data analysis and plots the decisions tree classifier performance
 def plot_decision_tree_classifier_score(decisionTreeClassifierResults):
