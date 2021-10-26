@@ -75,8 +75,9 @@ accuracy score:
     #### Random Forest ####
 
 
-Evaluation of random forest classification algorithm accuracy as a function of tree depth (3 to 5) and amount of trees (100 to 1000 in steps of 100):
+Accuracy scores of random forest classification algorithm as a function of tree depth (3 to 5) and amount of trees (100 to 1000 in steps of 100):
 
-![RandomForest Train](https://user-images.githubusercontent.com/85901822/138869983-c9747e3f-bbef-4a15-b1ca-fcbb64909c29.png)
+![RandomForest Train](https://user-images.githubusercontent.com/85901822/138872195-d8441273-67b6-4d74-932d-f3100169f46c.png)
 
-![RandomForest Test](https://user-images.githubusercontent.com/85901822/138869997-1d87e0b1-e86c-4c59-8eed-09c5189037e8.png)
+![RandomForest Test](https://user-images.githubusercontent.com/85901822/138872211-9129bdf9-d93e-461a-8599-e117385fe16f.png)
+
