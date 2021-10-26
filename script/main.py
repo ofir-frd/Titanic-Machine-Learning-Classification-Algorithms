@@ -33,6 +33,13 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import cross_val_score
 
+### Plot heat maps of the accuracy scores
+def plot_random_forest_classifier_score(RandomForestClassifierTrainResults,RandomForestClassifierTestResults):
+
+### Apply decision tree regressor to predict the survivability of passengers
+### Returns accuracy scores
+def run_random_forest_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, forestSize, treeDepth, randomState):
+
 
 ### Data analysis and plots the decisions tree classifier performance
 def plot_decision_tree_classifier_score(decisionTreeClassifierResults):
@@ -76,7 +83,7 @@ def plot_decision_tree(treeObject):
 
 
 ### Apply decision tree regressor to predict the survivability of passengers
-### Returns accuracyValue and crossValScore
+### Returns accuracy scores and crossValScore
 def run_decision_tree_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, maxDepth, randomState):
 
     x = titaticTrainDF.drop('Survived', axis=1)
@@ -328,6 +335,21 @@ def main():
     
     ### Output of accuracy and cross validation scroes are given to each tree depth value
     plot_decision_tree_classifier_score(decisionTreeClassifierResults)
+    
+    ### Run random forest classifier on a set of forest sizes and tree depths
+    RandomForestClassifierTrainResults = np.zeros((10,3))
+    RandomForestClassifierTestResults = np.zeros((10,3))
+    for forestSize in range(100,1001, 100): 
+        for treeDepth in range(3,6):
+            currentI = int(i/100-1)
+            currentJ = int(j-3)
+            RandomForestClassifierTrainResults[currentI][currentJ],
+            RandomForestClassifierTestResults[currentI][currentJ]=
+            run_random_forest_classifier(titaticTestDF, titaticTrainDF, 
+                                         titaticTestResults, forestSize, treeDepth, 42)
+    
+    ### Plot heat maps of the accuracy scores
+    plot_random_forest_classifier_score(RandomForestClassifierTrainResults,RandomForestClassifierTestResults)
     
 if __name__ == "__main__":
     main()
