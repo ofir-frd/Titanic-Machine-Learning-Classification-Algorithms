@@ -12,6 +12,12 @@ https://www.kaggle.com/c/titanic
     #########################
     
     
+Initial Overview with seaborn pairplot:
+
+![pairplot](https://user-images.githubusercontent.com/85901822/138879417-65561237-bb87-4f4e-92cb-8f48d0d9fc90.png)
+    
+    
+    
 passengers class distribution:
 
 ![Passangers class distribution](https://user-images.githubusercontent.com/85901822/133884139-d800d625-70a1-45df-b189-b56865739207.png)
@@ -60,6 +66,8 @@ Sample of **desition tree classification** with a max depth of 4.
 The accuracy score of this algorithm on the initial DB is 82.51%, and on the test DB is **96.69%**.
 
 ![Figure 2021-10-14 183414](https://user-images.githubusercontent.com/85901822/137436008-e4e6cbf7-9a79-4db2-b602-618608be311f.png)
+
+
 
 Examination of the decision tree classification algorithm efficiency based on the tree depth range of 1 to 10.
 
