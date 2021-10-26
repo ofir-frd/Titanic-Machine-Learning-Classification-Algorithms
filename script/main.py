@@ -34,7 +34,7 @@ from sklearn.model_selection import cross_val_score
 
 
 ### Data analysis and plots the decisions tree classifier performance
-def plot_decision_tree_classifier_score(decisionTreeClassifierResults)
+def plot_decision_tree_classifier_score(decisionTreeClassifierResults):
 
     accuracyValueTrainList = []
     accuracyValueTestList = []
@@ -68,7 +68,7 @@ def plot_decision_tree_classifier_score(decisionTreeClassifierResults)
 
 
 ### Plots given decision tree object
-def plot_decision_tree(treeObject) :
+def plot_decision_tree(treeObject):
     
     fig07, axis = plt.subplots(figsize=(10,10))
     plot_tree(dtObject)
@@ -231,7 +231,7 @@ def plot_processed_data(titaticTestDF, titaticTrainDF):
 
 
 ### Removes Passanger ID feature
-def remove_passanger_id (titaticDF)
+def remove_passanger_id (titaticDF):
     return titaticDF.drop('PassengerId', axis=1) 
 
 
