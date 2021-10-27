@@ -43,9 +43,32 @@ def plot_random_forest_classifier_score(RandomForestClassifierTrainResults,Rando
 ### Returns accuracy scores
 def run_random_forest_classifier(titaticTestDF, titaticTrainDF, titaticTestResults, forestSize, treeDepth, randomState):
 
-    ###
-        
+    x = titaticTrainDF.drop('Survived', axis=1)
 
+    y = titaticTrainDF['Survived']
+
+    x_train, x_test, y_train, y_test = train_test_split(x,y, test_size = 0.2, train_size = 0.8,
+                                                    random_state = 47, shuffle= True)
+
+    dtObject = RandomForestClassifier(n_estimators=forestSize, max_depth=treeDepth)
+
+    dtObject.fit(x_train,y_train)
+
+    PredictedTrain = dtObject.predict(x_test)
+    
+    accuracyValueTrain = accuracy_score(y_test, PredictedTrain)
+    
+    crossValScoreTrain = cross_val_score(dtObject, x, y, cv = 10)
+    
+    PredictedTest = dtObject.predict(titaticTestDF)
+    
+    accuracyValueTest = accuracy_score(titaticTestResultsClean, PredictedTest)
+    
+    crossValScoreTest = cross_val_score(dtObject, x, y, cv = 10)
+
+    return accuracyValueTrain, accuracyValueTest
+
+    
 ### Data analysis and plots the decisions tree classifier performance
 def plot_decision_tree_classifier_score(decisionTreeClassifierResults):
 
