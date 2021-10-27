@@ -36,7 +36,25 @@ from sklearn.model_selection import cross_val_score
 ### Plot heat maps of the accuracy scores
 def plot_random_forest_classifier_score(RandomForestClassifierTrainResults,RandomForestClassifierTestResults):
 
-    ###
+    fig10, axis = plt.subplots(figsize=(5,5))
+
+    axis= sn.heatmap(RandomForestClassifierTrainResults, linewidths=.5, annot=True,
+                     cbar=False, xticklabels=range(3,6,1), yticklabels=range(100,1001,100),
+                     cmap = 'RdYlGn')
+    axis.set_xlabel("Tree Depth")
+    axis.set_ylabel("Num. of Trees")
+    plt.title('Random Forest Classifier Train DataBase Accuracy Scores (0 to 1)')
+    
+    
+    
+    fig11, axis = plt.subplots(figsize=(5,5))
+    
+    axis= sn.heatmap(RandomForestClassifierTestResults, linewidths=.5, annot=True,
+                     cbar=False, xticklabels=range(3,6,1), yticklabels=range(100,1001,100),
+                     cmap = 'RdYlGn')
+    axis.set_xlabel("Tree Depth")
+    axis.set_ylabel("Num. of Trees")
+    plt.title('Random Forest Classifier Test DataBase Accuracy Scores (0 to 1)')
     
     
 ### Apply decision tree regressor to predict the survivability of passengers
